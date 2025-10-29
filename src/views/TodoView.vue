@@ -12,7 +12,7 @@ watchEffect(async () => {
 
 async function deleteTodo(id: number) {
   await todoService.deleteTodo(id);
-  items.value = items.value.filter((item) => item.id === id);
+  items.value = items.value.filter((item) => item.id !== id);
 }
 </script>
 
