@@ -1,5 +1,5 @@
 <script setup lang="ts">
-
+import TodoItem from "@/components/TodoItem.vue";
 </script>
 
 <template>
@@ -8,6 +8,7 @@
     <button class="button">Add task</button>
   </div>
   <ul class="todo-list">
+    <li><TodoItem/></li>
   </ul>
 </template>
 
