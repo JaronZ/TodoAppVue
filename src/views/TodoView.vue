@@ -20,7 +20,7 @@ const items: TodoItemInfo[] = [
 <template>
   <div class="title">
     <h1>Tasks</h1>
-    <button class="button">Add task</button>
+    <RouterLink class="button" to="/add">Add task</RouterLink>
   </div>
   <ul class="todo-list">
     <li v-for="item in items" :key="item.id">

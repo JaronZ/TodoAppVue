@@ -2,6 +2,7 @@ import { createRouter, createWebHistory } from 'vue-router'
 import TodoView from "@/views/TodoView.vue";
 import * as Vue from 'vue';
 import DetailsView from "@/views/DetailsView.vue";
+import AddTodoView from "@/views/AddTodoView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -18,6 +19,13 @@ const router = createRouter({
           component: DetailsView,
           meta: {
               title: "Todo Details"
+          }
+      },
+      {
+          path: "/add",
+          component: AddTodoView,
+          meta: {
+              title: "Add Todo"
           }
       }
   ],
