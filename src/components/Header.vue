@@ -10,7 +10,7 @@
 
 <style scoped>
 header {
-  background-color: lightgray;
+  background-color: gray;
   padding: 20px;
 }
 </style>
