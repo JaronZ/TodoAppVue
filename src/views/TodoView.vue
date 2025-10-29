@@ -2,11 +2,18 @@
 import TodoItem from "@/components/TodoItem.vue";
 import type {TodoItemInfo} from "@/TodoItemInfo.ts";
 
-const task: TodoItemInfo = {
-  id: 1,
-  name: "Homework",
-  dueDate: new Date()
-};
+const items: TodoItemInfo[] = [
+  {
+    id: 1,
+    name: "Buy groceries",
+    dueDate: new Date('2024-07-01'),
+  },
+  {
+    id: 2,
+    name: "Walk the dog",
+    dueDate: new Date('2024-07-02')
+  }
+];
 </script>
 
 <template>
@@ -15,7 +22,9 @@ const task: TodoItemInfo = {
     <button class="button">Add task</button>
   </div>
   <ul class="todo-list">
-    <li><TodoItem v-bind="task" /></li>
+    <li v-for="item in items" :key="item.id">
+      <TodoItem v-bind="item" />
+    </li>
   </ul>
 </template>
 
@@ -31,5 +40,9 @@ const task: TodoItemInfo = {
   list-style: none;
   padding: 0;
   margin: 0;
+}
+
+.todo-list > li {
+  margin-bottom: 10px;
 }
 </style>
