@@ -1,14 +1,13 @@
 <script setup lang="ts">
-defineProps<{
-  name: string;
-  date?: Date;
-}>();
+import type {TodoItemInfo} from "@/TodoItemInfo.ts";
+
+defineProps<TodoItemInfo>();
 </script>
 
 <template>
   <div class="todo-item">
     <p>{{name}}</p>
-    <p>{{ date?.toDateString() ?? "" }}</p>
+    <p>{{ dueDate?.toDateString() ?? "" }}</p>
     <div class="todo-buttons">
       <button class="button">Edit</button>
       <button class="button">Delete</button>

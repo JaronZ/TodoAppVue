@@ -1,5 +1,12 @@
 <script setup lang="ts">
 import TodoItem from "@/components/TodoItem.vue";
+import type {TodoItemInfo} from "@/TodoItemInfo.ts";
+
+const task: TodoItemInfo = {
+  id: 1,
+  name: "Homework",
+  dueDate: new Date()
+};
 </script>
 
 <template>
@@ -8,7 +15,7 @@ import TodoItem from "@/components/TodoItem.vue";
     <button class="button">Add task</button>
   </div>
   <ul class="todo-list">
-    <li><TodoItem name="Homework" :date="new Date()" /></li>
+    <li><TodoItem v-bind="task" /></li>
   </ul>
 </template>
 
