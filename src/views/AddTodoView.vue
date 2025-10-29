@@ -23,14 +23,20 @@ async function submitTodo() {
 <template>
   <h1>Add Todo</h1>
   <form @submit.prevent="submitTodo">
-    <label for="name">Name</label>
-    <input id="name" type="text" v-model="name" />
+    <div class="form-group">
+      <label class="form-label" for="name">Name</label>
+      <input class="form-control" id="name" type="text" v-model="name"/>
+    </div>
 
-    <label for="due-date">Due Date</label>
-    <input id="due-date" type="date" v-model="dueDate" />
+    <div class="form-group">
+      <label class="form-label" for="due-date">Due Date</label>
+      <input class="form-control" id="due-date" type="date" v-model="dueDate"/>
+    </div>
 
-    <label for="description">Description</label>
-    <textarea id="description" v-model="description"></textarea>
+    <div class="form-group">
+      <label class="form-label" for="description">Description</label>
+      <textarea rows="20" class="form-control" id="description" v-model="description"></textarea>
+    </div>
 
     <button type="submit" class="button">Create</button>
   </form>
