@@ -4,7 +4,7 @@
 
 <template>
   <header>
-    <a href="/">Home</a>
+    <a class="nav-home" href="/">Todo List</a>
   </header>
 </template>
 
@@ -12,5 +12,11 @@
 header {
   background-color: gray;
   padding: 20px;
+}
+
+.nav-home {
+  color: white;
+  text-decoration: none;
+  font-size: 24px;
 }
 </style>
