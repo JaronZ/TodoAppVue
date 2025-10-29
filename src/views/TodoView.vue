@@ -7,6 +7,7 @@ const items: TodoItemInfo[] = [
     id: 1,
     name: "Buy groceries",
     dueDate: new Date('2024-07-01'),
+    description: "Milk, Bread, Eggs"
   },
   {
     id: 2,

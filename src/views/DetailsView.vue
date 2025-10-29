@@ -10,6 +10,7 @@ const items: TodoItemInfo[] = [
     id: 1,
     name: "Buy groceries",
     dueDate: new Date('2024-07-01'),
+    description: "Milk, Bread, Eggs"
   },
   {
     id: 2,
@@ -34,6 +35,7 @@ setTodoItem(Number(route.params.id));
 <template>
   <h1>{{todoItem?.name}}</h1>
   <p>Due by: {{ todoItem?.dueDate?.toDateString() }}</p>
+  <p>{{todoItem?.description ?? ""}}</p>
 </template>
 
 <style scoped>
