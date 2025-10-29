@@ -1,14 +1,19 @@
 <script setup lang="ts">
 import TodoItem from "@/components/TodoItem.vue";
-import {getAllTodos} from "@/TodoService.ts";
+import * as todoService from "@/TodoService.ts";
 import {ref, watchEffect} from "vue";
 import type {TodoItemInfo} from "@/TodoItemInfo.ts";
 
 const items = ref<TodoItemInfo[]>([]);
 
 watchEffect(async () => {
-  items.value = await getAllTodos();
+  items.value = await todoService.getAllTodos();
 });
+
+async function deleteTodo(id: number) {
+  await todoService.deleteTodo(id);
+  items.value = items.value.filter((item) => item.id === id);
+}
 </script>
 
 <template>
@@ -18,7 +23,7 @@ watchEffect(async () => {
   </div>
   <ul class="todo-list">
     <li v-for="item in items" :key="item.id">
-      <TodoItem v-bind="item" />
+      <TodoItem v-bind="item" @delete="deleteTodo(item.id)" />
     </li>
   </ul>
 </template>

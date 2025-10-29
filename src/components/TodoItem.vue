@@ -1,7 +1,12 @@
 <script setup lang="ts">
 import type {TodoItemInfo} from "@/TodoItemInfo.ts";
 
+const emit = defineEmits(["delete"]);
 defineProps<TodoItemInfo>();
+
+function deleteItem() {
+  emit("delete");
+}
 </script>
 
 <template>
@@ -11,7 +16,7 @@ defineProps<TodoItemInfo>();
     <div class="todo-buttons">
       <RouterLink class="button" :to="`/details/${id}`">View</RouterLink>
       <button class="button">Edit</button>
-      <button class="button">Delete</button>
+      <button class="button" @click="deleteItem">Delete</button>
     </div>
   </div>
 </template>

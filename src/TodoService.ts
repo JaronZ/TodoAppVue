@@ -47,3 +47,9 @@ export async function createTodo(todo: TodoItemInfo): Promise<void> {
         body: JSON.stringify(mapTaskToAPI(todo))
     });
 }
+
+export async function deleteTodo(id: number): Promise<void> {
+    await fetch(`${BASE_URL}/${id}`, {
+        method: "DELETE"
+    });
+}
