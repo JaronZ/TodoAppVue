@@ -1,35 +1,23 @@
 <script setup lang="ts">
 import type {TodoItemInfo} from "@/TodoItemInfo.ts";
 import {useRoute, onBeforeRouteUpdate} from "vue-router";
-import {ref} from "vue";
+import {ref, watchEffect} from "vue";
+import {getTodoById} from "@/TodoService.ts";
 
 const route = useRoute();
-
-const items: TodoItemInfo[] = [
-  {
-    id: 1,
-    name: "Buy groceries",
-    dueDate: new Date('2024-07-01'),
-    description: "Milk, Bread, Eggs"
-  },
-  {
-    id: 2,
-    name: "Walk the dog",
-    dueDate: new Date('2024-07-02')
-  }
-];
-
 const todoItem = ref<TodoItemInfo | null>(null);
 
-function setTodoItem(id: number) {
-  todoItem.value = items.find(item => item.id === id) || null;
+async function setTodoItem(id: number) {
+  todoItem.value = await getTodoById(id);
 }
 
-onBeforeRouteUpdate((to, from) => {
-  setTodoItem(Number(to.params.id));
+onBeforeRouteUpdate(async (to, from) => {
+  await setTodoItem(Number(to.params.id));
 });
 
-setTodoItem(Number(route.params.id));
+watchEffect(async () => {
+  await setTodoItem(Number(route.params.id));
+});
 </script>
 
 <template>

@@ -1,12 +1,14 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import {createTodo} from "@/TodoService.ts";
 
 const name = ref("");
 const dueDate = ref<string>();
 const description = ref<string>();
 
 function submitTodo() {
-  console.log({
+  createTodo({
+    id: -1,
     name: name.value,
     dueDate: dueDate.value ? new Date(dueDate.value) : undefined,
     description: description.value,
