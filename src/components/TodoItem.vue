@@ -9,6 +9,7 @@ defineProps<TodoItemInfo>();
     <p>{{name}}</p>
     <p>{{ dueDate?.toDateString() ?? "" }}</p>
     <div class="todo-buttons">
+      <RouterLink class="button" :to="`/details/${id}`">View</RouterLink>
       <button class="button">Edit</button>
       <button class="button">Delete</button>
     </div>
