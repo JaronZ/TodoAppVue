@@ -1,18 +1,22 @@
 <script setup lang="ts">
 import { ref } from "vue";
 import {createTodo} from "@/TodoService.ts";
+import {useRouter} from "vue-router";
+
+const router = useRouter();
 
 const name = ref("");
 const dueDate = ref<string>();
 const description = ref<string>();
 
-function submitTodo() {
-  createTodo({
+async function submitTodo() {
+  await createTodo({
     id: -1,
     name: name.value,
     dueDate: dueDate.value ? new Date(dueDate.value) : undefined,
     description: description.value,
   });
+  await router.push("/");
 }
 </script>
 

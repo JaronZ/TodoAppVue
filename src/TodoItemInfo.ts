@@ -6,7 +6,7 @@ export interface TodoItemInfo {
 }
 
 export interface APITodoItemInfo {
-    id: number;
+    id: string;
     name: string;
     dueDate?: string;
     description?: string;
