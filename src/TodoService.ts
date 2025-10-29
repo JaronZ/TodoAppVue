@@ -53,3 +53,10 @@ export async function deleteTodo(id: number): Promise<void> {
         method: "DELETE"
     });
 }
+
+export async function editTodo(todo: TodoItemInfo): Promise<void> {
+    await fetch(`${BASE_URL}/${todo.id}`, {
+        method: "PUT",
+        body: JSON.stringify(mapTaskToAPI(todo))
+    });
+}
