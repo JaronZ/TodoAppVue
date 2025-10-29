@@ -4,7 +4,7 @@
 
 <template>
   <header>
-    <a class="nav-home" href="/">Todo List</a>
+    <RouterLink class="nav-home" to="/">Todo List</RouterLink>
   </header>
 </template>
 

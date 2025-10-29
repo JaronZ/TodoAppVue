@@ -7,7 +7,6 @@ import TodoView from "@/views/TodoView.vue";
   <main>
     <Header />
     <section class="content">
-      <TodoView />
       <RouterView/>
     </section>
   </main>
