@@ -1,7 +1,14 @@
+<script setup lang="ts">
+defineProps<{
+  name: string;
+  date?: Date;
+}>();
+</script>
+
 <template>
   <div class="todo-item">
-    <p>Task Name</p>
-    <p>Wednesday Nov 11 2023</p>
+    <p>{{name}}</p>
+    <p>{{ date?.toDateString() ?? "" }}</p>
     <div class="todo-buttons">
       <button class="button">Edit</button>
       <button class="button">Delete</button>

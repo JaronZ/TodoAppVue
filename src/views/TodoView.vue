@@ -8,7 +8,7 @@ import TodoItem from "@/components/TodoItem.vue";
     <button class="button">Add task</button>
   </div>
   <ul class="todo-list">
-    <li><TodoItem/></li>
+    <li><TodoItem name="Homework" :date="new Date()" /></li>
   </ul>
 </template>
 
