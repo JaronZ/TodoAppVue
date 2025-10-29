@@ -3,6 +3,7 @@ import TodoView from "@/views/TodoView.vue";
 import * as Vue from 'vue';
 import DetailsView from "@/views/DetailsView.vue";
 import AddTodoView from "@/views/AddTodoView.vue";
+import EditTodoView from "@/views/EditTodoView.vue";
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -26,6 +27,13 @@ const router = createRouter({
           component: AddTodoView,
           meta: {
               title: "Add Todo"
+          }
+      },
+      {
+          path: "/edit/:id",
+          component: EditTodoView,
+          meta: {
+              title: "Edit Todo"
           }
       }
   ],

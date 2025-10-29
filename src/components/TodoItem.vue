@@ -15,7 +15,7 @@ function deleteItem() {
     <p>{{ dueDate?.toDateString() ?? "" }}</p>
     <div class="todo-buttons">
       <RouterLink class="button" :to="`/details/${id}`">View</RouterLink>
-      <button class="button">Edit</button>
+      <RouterLink class="button" :to="`/edit/${id}`">Edit</RouterLink>
       <button class="button" @click="deleteItem">Delete</button>
     </div>
   </div>
